@@ -46,7 +46,6 @@ pip install -r requirements.txt
 ```
 ## **Usage**
 
-```
-bash
+```bash
 python scamflow.py --file suspicious.eml --report --output json
 python scamflow.py --paste-header
