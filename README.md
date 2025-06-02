@@ -43,11 +43,10 @@ git clone https://github.com/yourusername/ScamFlow-Reporting.git
 cd ScamFlow-Reporting
 pip install -r requirements.txt
 
+```
+## **Usage**
 
-#### ▶️ **Usage**
-```markdown
-## ▶️ Usage
-
-```bash
+```
+bash
 python scamflow.py --file suspicious.eml --report --output json
 python scamflow.py --paste-header
