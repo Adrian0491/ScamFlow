@@ -1,0 +1,336 @@
+Received: from 127.0.0.1
+ by atlas-production.v2-mail-prod1-bf1.omega.yahoo.com pod-id atlas--production-bf1-85f67d596-dl427.bf1.yahoo.com with HTTP; Wed, 11 Jun 2025 17:20:03 +0000
+Return-Path: <bounces+53232301-4de6-pircalaboiu.adrian=yahoo.com@em6792.lunixor.com>
+X-Originating-Ip: [208.117.50.112]
+Received-SPF: pass (domain of em6792.lunixor.com designates 208.117.50.112 as permitted sender)
+Authentication-Results: atlas-production.v2-mail-prod1-bf1.omega.yahoo.com;
+ dkim=pass header.i=@lunixor.com header.s=s1 arc_overridden_status=NOT_OVERRIDDEN;
+ dkim=pass header.i=@sendgrid.info header.s=smtpapi arc_overridden_status=NOT_OVERRIDDEN;
+ spf=pass smtp.mailfrom=em6792.lunixor.com arc_overridden_status=NOT_OVERRIDDEN;
+ dmarc=pass(p=NONE) header.from=lunixor.com arc_overridden_status=NOT_OVERRIDDEN;
+X-Apparently-To: pircalaboiu.adrian@yahoo.com; Wed, 11 Jun 2025 17:20:04 +0000
+X-YMailISG: jJTZgeMWLDvoKy4aPhuytDyt0olPJJy8iP_tR2F69HGeEBeR
+ FwwF.qiJXUp7psi3K_U0AQXMuf_qLat1eLq0S2jIL7twgGcTPPNZ.n7FM9L3
+ SNrddoYyI.wQVKk4ntUqNigFAvU85Y2Hi9JBrlj1hLDOoTGjYl0N5aLoGWix
+ oLns0dd01nzSnzVAmMts8L4BZKp2N1R.sU9PCMoFC2Vxdi6PEgccpa9ZxaHd
+ icquRkEooAci8QstNTgBi0erJJSqrn7VKP7ipdlXd75ypaDo0t2oHcGBpPm4
+ xcVTC6raMX6ZMyE5LbsE.JyImJvdug2DvgT.eGyt4.kJ4GA4Fr3VfobbSKRi
+ XmXtCnVXAEcg2StpCYCpe03Ls6cJZV.FURQuuhheS31MJdrWbuF5qdFwZW9a
+ a5KLuXt3gAJz11w9kmy44iU9DPgradXwh1caPBpSUu.pFCxDDrXdG2Tjmm7X
+ 8pPzAEwtzNJaytZ342T2IAn_HIxeA792Vmafjhyi5qcI5Rd1900lnbLIymYE
+ ZS.j9pzeTj7UYH8D6cGRBNSmMzTUrLrvrKqe4q9FQark2am_FA4_hbyGTaI8
+ vhYQkzdtx3M9naHrW10Bvu3Hu.nMHbes_EbCFpRvFP.6aVYDjMXGo1XcSweN
+ wmvwVzNsMjeblgng0Lx7EgITF8Q.9OWROVyh0bArPkCzxFwP5lkr7jTpOmKd
+ 9yIGQPRR1Sa2EnKIgGoUHDnqUST07vJ3YAfnG9b8k0fLPCTo.XcBtetzxPG.
+ SU9XIhPdnDihFIop07rGzOMSh8JpYNYLB7hyHHHmpl8Spw49k5_FZWhJv_Yw
+ kj6T4snyqhJVfbxT5Q8_T.Dfyzyxru3Iv0InqzZucTl_XpfhHe5f.d30bgeP
+ sFICTeYk8UwOuB1jkHYh6rohk3SxAVhYJX0M0w9lXP6upsgT_BWRB8V75LhC
+ Dni4uaMmo8C8TVz6D1DLx4KW.HfWZDZc2VaYU_NNvGmcDj.vbcGTuSmMqtZl
+ sgVFEiiSc2NgLuHQUWoFCguQnQnOs5GGYGL0hdrQc_T.Cs3wLeQgtRqEhVXn
+ a5tVDN_Uy5FLpd.oA4zcDHD63AUaJi8FqTrZfjd2mNQ5gr9G2N5DTzj0hNF2
+ LadbbNw65iiA2i8avIKZXxhmT1br1XFrl_kaCFR26wjTCTDlADyNl.NN4WwV
+ 1VQZRPzaiSqYSMzj4OY0dSWZZqs-
+Received: from 208.117.50.112 (EHLO s.dhtrpnth.outbound-mail.sendgrid.net)
+ by 10.197.32.140 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Wed, 11 Jun 2025 17:20:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lunixor.com;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:to:cc:content-type:from:subject:to;
+	s=s1; bh=GDqSOnH520dbaznCGptBVnMBNpq/OvXzhOjI9A6BJCk=;
+	b=Z6wBjSJw1bb7cLfRCXdOB9YhUnxhE41PWyQegyka9D/wDOfbcPvqcBEkhgH9kbvyp3yy
+	nuCxELNgFuRi2A3lupQmOIHZqJ4/BDsVxp4gDJ1mcSb2lmIoNvWY9Dz9gOtahwHRvDSrFZ
+	2NB9KyJI9jX5QUl94BQLcfzMNfXwdGbowqZqx14aT79wyJTaw8bIjq/1Vthcgb9kVhQ4x4
+	MIiAreukH9WB492V2yt6TCjmWBQZpzA9zHjygq4WUD2r+74I23eWfC5Qjiu6+iigfaerft
+	0/8w336l7uTQSC7wU7Zbe2XhGnirX6b1V1cwRvVuLccuTPpt6zrT9NWdCds41Tsg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sendgrid.info;
+	h=content-transfer-encoding:content-type:from:mime-version:subject:
+	reply-to:to:cc:content-type:from:subject:to;
+	s=smtpapi; bh=GDqSOnH520dbaznCGptBVnMBNpq/OvXzhOjI9A6BJCk=;
+	b=wvpq7qcli4awIOpfDz1p+P2vW7UnL02ELRwGpn/rsyt0HHhw55FrZOUdce0Mc6FgoNTZ
+	gzpjZ3hclnNFfdcYv3/jA35Ny48DPLGEHmwYFVmWBFJS/n0I+h8CzyAD8/7DoOzou/8NQS
+	jJR/JkiXw7yhEFZ0bBuFGn5Xn0A6Z38VE=
+Received: by recvd-686fbc5d8-5nfb8 with SMTP id recvd-686fbc5d8-5nfb8-1-6849BAC2-8
+	2025-06-11 17:20:02.64051485 +0000 UTC m=+606929.852484083
+Received: from NTMyMzIzMDE (unknown)
+	by geopod-ismtpd-9 (SG) with HTTP
+	id tKaw6w-1T8WtiEFeOK1RIg
+	Wed, 11 Jun 2025 17:20:02.609 +0000 (UTC)
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=us-ascii
+Date: Wed, 11 Jun 2025 17:20:02 +0000 (UTC)
+From: Lunixor <admin@lunixor.com>
+Mime-Version: 1.0
+Message-ID: <tKaw6w-1T8WtiEFeOK1RIg@geopod-ismtpd-9>
+Subject: Application Update  - Invitation to Join Lunixor
+Reply-To: admin@lunixor.com
+X-SG-EID: 
+ =?us-ascii?Q?u001=2EHz8Z5EiXBZaGF=2FH8MJejrH0xPJLDfDFho2sQlfkRrwqNdJmVZXMnnjQJA?=
+ =?us-ascii?Q?YzoAfDBm6FjXxIE3+nTOwL7B9JpmtMneTmWm1H5?=
+ =?us-ascii?Q?z=2FI8brDmY2mffHba9vrg74eGBYVWCw4b0DOuXqY?=
+ =?us-ascii?Q?kEwQtbXvRm6cEqhl0XmnFvSZ8JFk9W46hJup0q0?=
+ =?us-ascii?Q?SFvOVOhIjhb3SUgXkhWAng90URg8PKwR0ZzojBk?=
+ =?us-ascii?Q?lEYeTJMrMUKn6FGlhNS1ahbOiX1moS5bLoUPx94?= =?us-ascii?Q?EjbX?=
+X-SG-ID: 
+ =?us-ascii?Q?u001=2ESdBcvi+Evd=2FbQef8eZF3BpTL9BgbK5wfSJMJGMsmprDsPyUTnMagHRCjb?=
+ =?us-ascii?Q?=2F65GublTgRJinjLjIYz3xuNqgfnlAauBvblgBCa?=
+ =?us-ascii?Q?BNtuljiJrFosI0V4HRNyAS4kahq3sTM65Snghmb?=
+ =?us-ascii?Q?ayduELgeSGnwUnYupTapCXmUS=2FhhET2nB+gUC8M?=
+ =?us-ascii?Q?UdiS2KRxgedp=2F9YRpw?=
+To: pircalaboiu.adrian@yahoo.com
+X-Entity-ID: u001.kOQW5H7VuxRRYB0+Wkx/TA==
+Content-Length: 10160
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html data-editor-version=3D"2" class=3D"sg-campaigns" xmlns=3D"http://www.=
+w3.org/1999/xhtml">
+    <head>
+      <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf=
+-8">
+      <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1, minimum-scale=3D1, maximum-scale=3D1">
+      <!--[if !mso]><!-->
+      <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3DEdge">
+      <!--<![endif]-->
+      <!--[if (gte mso 9)|(IE)]>
+      <xml>
+        <o:OfficeDocumentSettings>
+          <o:AllowPNG/>
+          <o:PixelsPerInch>96</o:PixelsPerInch>
+        </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
+      <!--[if (gte mso 9)|(IE)]>
+  <style type=3D"text/css">
+    body {width: 600px;margin: 0 auto;}
+    table {border-collapse: collapse;}
+    table, td {mso-table-lspace: 0pt;mso-table-rspace: 0pt;}
+    img {-ms-interpolation-mode: bicubic;}
+  </style>
+<![endif]-->
+      <style type=3D"text/css">
+    body, p, div {
+      font-family: arial,helvetica,sans-serif;
+      font-size: 14px;
+    }
+    body {
+      color: #000000;
+    }
+    body a {
+      color: #1188E6;
+      text-decoration: none;
+    }
+    p { margin: 0; padding: 0; }
+    table.wrapper {
+      width:100% !important;
+      table-layout: fixed;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+      -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+    img.max-width {
+      max-width: 100% !important;
+    }
+    .column.of-2 {
+      width: 50%;
+    }
+    .column.of-3 {
+      width: 33.333%;
+    }
+    .column.of-4 {
+      width: 25%;
+    }
+    ul ul ul ul  {
+      list-style-type: disc !important;
+    }
+    ol ol {
+      list-style-type: lower-roman !important;
+    }
+    ol ol ol {
+      list-style-type: lower-latin !important;
+    }
+    ol ol ol ol {
+      list-style-type: decimal !important;
+    }
+    @media screen and (max-width:480px) {
+      .preheader .rightColumnContent,
+      .footer .rightColumnContent {
+        text-align: left !important;
+      }
+      .preheader .rightColumnContent div,
+      .preheader .rightColumnContent span,
+      .footer .rightColumnContent div,
+      .footer .rightColumnContent span {
+        text-align: left !important;
+      }
+      .preheader .rightColumnContent,
+      .preheader .leftColumnContent {
+        font-size: 80% !important;
+        padding: 5px 0;
+      }
+      table.wrapper-mobile {
+        width: 100% !important;
+        table-layout: fixed;
+      }
+      img.max-width {
+        height: auto !important;
+        max-width: 100% !important;
+      }
+      a.bulletproof-button {
+        display: block !important;
+        width: auto !important;
+        font-size: 80%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+      .columns {
+        width: 100% !important;
+      }
+      .column {
+        display: block !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+      }
+      .social-icon-column {
+        display: inline-block !important;
+      }
+    }
+  </style>
+      <!--user entered Head Start--><!--End Head user entered-->
+    </head>
+    <body>
+      <center class=3D"wrapper" data-link-color=3D"#1188E6" data-body-style=
+=3D"font-size:14px; font-family:arial,helvetica,sans-serif; color:#000000; =
+background-color:#FFFFFF;">
+        <div class=3D"webkit">
+          <table cellpadding=3D"0" cellspacing=3D"0" border=3D"0" width=3D"=
+100%" class=3D"wrapper" bgcolor=3D"#FFFFFF">
+            <tr>
+              <td valign=3D"top" bgcolor=3D"#FFFFFF" width=3D"100%">
+                <table width=3D"100%" role=3D"content-container" class=3D"o=
+uter" align=3D"center" cellpadding=3D"0" cellspacing=3D"0" border=3D"0">
+                  <tr>
+                    <td width=3D"100%">
+                      <table width=3D"100%" cellpadding=3D"0" cellspacing=
+=3D"0" border=3D"0">
+                        <tr>
+                          <td>
+                            <!--[if mso]>
+    <center>
+    <table><tr><td width=3D"600">
+  <![endif]-->
+                                    <table width=3D"100%" cellpadding=3D"0"=
+ cellspacing=3D"0" border=3D"0" style=3D"width:100%; max-width:600px;" alig=
+n=3D"center">
+                                      <tr>
+                                        <td role=3D"modules-container" styl=
+e=3D"padding:0px 0px 0px 0px; color:#000000; text-align:left;" bgcolor=3D"#=
+FFFFFF" width=3D"100%" align=3D"left"><table class=3D"module preheader preh=
+eader-hide" role=3D"module" data-type=3D"preheader" border=3D"0" cellpaddin=
+g=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"display: none !important;=
+ mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height:=
+ 0; width: 0;">
+    <tr>
+      <td role=3D"module-content">
+        <p>Application Update  - Invitation to Join Lunixor</p>
+      </td>
+    </tr>
+  </table><table class=3D"module" role=3D"module" data-type=3D"text" border=
+=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"table-la=
+yout: fixed;" data-muid=3D"a6aa9b7a-a9ac-482b-b74f-1945694bab87" data-mc-mo=
+dule-version=3D"2019-10-22">
+    <tbody>
+      <tr>
+        <td style=3D"padding:18px 0px 18px 0px; line-height:22px; text-alig=
+n:inherit;" height=3D"100%" valign=3D"top" bgcolor=3D"" role=3D"module-cont=
+ent"><div><div style=3D"font-family: inherit; text-align: inherit">Hello,<b=
+r>
+<br>
+This email is to follow up on your application for the position at Lunixor,=
+ submitted via LinkedIn. Following our review, we are very interested in mo=
+ving forward.<br>
+<br>
+Please visit our website below to view more information about this contract=
+or position:<br>
+<br>
+<strong>https://lunixor.com/join</strong><br>
+<br>
+We welcome any questions you may have. Thank you for your time, and we anti=
+cipate your response.</div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div>
+<div style=3D"font-family: inherit; text-align: inherit"><br></div><div></d=
+iv></div></td>
+      </tr>
+    </tbody>
+  </table><div data-role=3D"module-unsubscribe" class=3D"module" role=3D"mo=
+dule" data-type=3D"unsubscribe" style=3D"color:#444444; font-size:12px; lin=
+e-height:20px; padding:16px 16px 16px 16px; text-align:Center;" data-muid=
+=3D"4e838cf3-9892-4a6d-94d6-170e474d21e5"><div class=3D"Unsubscribe--addres=
+sLine"></div><p style=3D"font-size:12px; line-height:20px;"><a target=3D"_b=
+lank" class=3D"Unsubscribe--unsubscribeLink zzzzzzz" href=3D"<%asm_group_un=
+subscribe_raw_url%>" style=3D"">Unsubscribe</a> - <a href=3D"<%asm_preferen=
+ces_raw_url%>" target=3D"_blank" class=3D"Unsubscribe--unsubscribePreferenc=
+es" style=3D"">Unsubscribe Preferences</a></p></div></td>
+                                      </tr>
+                                    </table>
+                                    <!--[if mso]>
+                                  </td>
+                                </tr>
+                              </table>
+                            </center>
+                            <![endif]-->
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </center>
+    <img src=3D"https://u53232301.ct.sendgrid.net/wf/open?upn=3Du001.VsLvqj=
+WtoAkc7XmFLuXHTh85ipH0s7gil1Hn0Cfv-2F5E0fdKG-2BvK0w5prvHgCQAbgzYOtfKkTlawOL=
+Uh81IOEV-2BmOE4GWIcnK6W6GKMyZXlvrPL8O3a4qmzM4dl18ZcEta2fAJqSfERJMvsuA39-2Bh=
+A7oF84K8mbT2IpLgRr42S0gh8JiZPNv-2FvZMwS2kOwRzIidRu2-2BL-2FuawYZQVQQgL1mtXKo=
+RH2j-2B1hxRi21XukH7lB9TV9APeWBlIgizqZ-2BaP6sWdk6t5FZu6kmoxEnf067xy33gbkx0u7=
+-2FeKID8fNzA0mXxx3iZ-2Bn6rOtqoJzfAIPXyAYSlmv9azvcnSGNNVfsEHAf9p1tqbAH-2FOhR=
+4nvFnk-3D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1=
+px !important;width:1px !important;border-width:0 !important;margin-top:0 !=
+important;margin-bottom:0 !important;margin-right:0 !important;margin-left:=
+0 !important;padding-top:0 !important;padding-bottom:0 !important;padding-r=
+ight:0 !important;padding-left:0 !important;"/></body>
+  </html>
