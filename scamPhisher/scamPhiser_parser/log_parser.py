@@ -9,7 +9,7 @@ from datetime import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from scamPhisher.logging.log_indexing import Logging
 
-class Log_Parser:
+class LogParser:
     def __init__(self, raw_email: str):
         self.raw_email = raw_email
         self.parsed_data: Dict[str, Union[Optional[str], List[str]]] = {}
