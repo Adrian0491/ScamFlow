@@ -1,0 +1,13 @@
+{
+    "From": "attacker@malicious.com",
+    "Reply-To": "scam@fraud.net",
+    "Subject": "Urgent Job Offer",
+    "Return-Path": "<bounce@spoofed.net>",
+    "X-Originating-Ip": "10.0.0.1",
+    "SPF": "fail",
+    "DKIM": "some_dkim_value",
+    "Authentication-Results": null,
+    "Links": [
+        "https://scamlink.net/verify"
+    ]
+}
