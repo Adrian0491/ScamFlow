@@ -8,12 +8,12 @@ from typing import Optional, Dict, List, Union
 from datetime import datetime
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from scamPhisher.logging.log_indexing import Logging
+from scamFlow.logging.log_indexing import Logging
 
 # Constants for paths
-RAW_MESSAGE_PATH = "scamPhisher/raw_messages_models"
-JSON_OUTPUT_PATH = "scamPhisher/JSON_Output"
-LOGS_DIR = "scamPhisher/logs"
+RAW_MESSAGE_PATH = "scamFlow/raw_messages_models"
+JSON_OUTPUT_PATH = "scamFlow/JSON_Output"
+LOGS_DIR = "scamFlow/logs"
 LOG_FILE_NAME = "scamFlow.log"
 
 class LogParser:

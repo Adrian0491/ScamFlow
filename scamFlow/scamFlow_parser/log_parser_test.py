@@ -1,7 +1,7 @@
 import unittest
 
 from log_parser import *
-from scamPhisher.logging.log_indexing import *
+from scamFlow.logging.log_indexing import *
 from unittest.mock import patch
 
 class LogParserTesting(unittest.TestCase):
