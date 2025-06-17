@@ -2,6 +2,7 @@ import re
 import json
 import sys
 import os
+import glob
 
 from typing import Optional, Dict, List, Union
 from datetime import datetime
@@ -13,7 +14,7 @@ class LogParser:
     def __init__(self, raw_email: str):
         self.raw_email = raw_email
         self.parsed_data: Dict[str, Union[Optional[str], List[str]]] = {}
-        self.logger = Logging()
+        self.logger = Logging() 
 
     def parse_headers(self) -> None:
         """Extract common headers from the raw email."""
@@ -50,7 +51,25 @@ class LogParser:
         self.extract_links()
         return self.parsed_data
 
-    def save_to_json(self, output_path: str = "parsed_email.json") -> None:
-        """Save the parsed data to a JSON file."""
-        with open(output_path, "w", encoding="utf-8") as f:
-            json.dump(self.parsed_data, f, indent=4, ensure_ascii=False)
+    def parse_all_files(self, input_dir: str = "raw_message_module", output_dir: str = 'JSON_Output') -> None:
+        """
+        Parses all files contained by the raw_messages_module Folder.
+        Output is saved in a JSON file.
+        """
+        files = glob.glob(os.path.join(input_dir, "*.log")) + glob.glob(os.path.join(input_dir, "*.eml"))
+
+        for file_path in files:
+            with open(file_path, "r", encoding="utf-8") as f:
+                self.raw_email = f.read()
+                self.parsed_data = {}
+                self.extract_all()
+
+                base_name = os.path.splitext(os.path.basename(file_path))[0]
+                output_path = os.path.join(output_dir, f"{base_name}_parsed.json")
+                with open(output_path, "w", encoding="utf-8") as out_file:
+                    json.dump(self.parsed_data, out_file, indent=4, ensure_ascii=False)
+                self.logger.info(f"Parsed and saved: {output_path}")
+
+if __name__ == "__main__":
+    parser = LogParser("") # Empty string, as the content is replaced per file
+    parser.parse_all_files()

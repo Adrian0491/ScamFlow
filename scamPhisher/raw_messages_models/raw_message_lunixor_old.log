@@ -1,0 +1,495 @@
+Received: from 127.0.0.1
+ by atlas-production.v2-mail-prod1-gq1.omega.yahoo.com pod-id atlas--production-gq1-74bd7575f8-pbbsg.gq1.yahoo.com with HTTP; Sat, 31 May 2025 18:23:42 +0000
+Return-Path: <b-7w8o615bjqyx6l-h8aorcju9weg5w@emails.lunixor.com>
+X-Originating-Ip: [82.199.156.193]
+Received-SPF: pass (domain of emails.lunixor.com designates 82.199.156.193 as permitted sender)
+Authentication-Results: atlas-production.v2-mail-prod1-gq1.omega.yahoo.com;
+ dkim=pass header.i=@lunixor.com header.s=ipz2 arc_overridden_status=NOT_OVERRIDDEN;
+ dkim=pass header.i=@mrelayip.com header.s=ipzs1 arc_overridden_status=NOT_OVERRIDDEN;
+ spf=pass smtp.mailfrom=emails.lunixor.com arc_overridden_status=NOT_OVERRIDDEN;
+ dmarc=pass(p=NONE) header.from=lunixor.com arc_overridden_status=NOT_OVERRIDDEN;
+X-Apparently-To: pircalaboiu.adrian@yahoo.com; Sat, 31 May 2025 18:23:42 +0000
+X-YMailISG: S.GBiMoWLDsrZaiBXcUDpgpaLquUWUrozgViQyW__nigoTUK
+ QDibKrIhF8yEYzqGaphoDZo_tBvbw8QuUAEmD4Zw4X761S9bMUZkpDl4fLd7
+ 3UjFcGTGRli6wIRNJEHy4_I6bTBhcCRRP6umOD3bMR2ZF80r8d6GTwczZAus
+ ulge8F3qVK9e.Z0PDsH1zWYixIHTBIAhcc6JdPrBnucEFb4GEMzmWS4HfvqZ
+ 7ZAoAR.WYdJkPcOo3l1VoFfnDbkyARv6spDWh.AbI0GoWbtmTGXfxD7Jwq2b
+ M5nwI45JeM67jtOMSWfI9ej4yUdBlq9ntVbZAxo4Z8OhE0D4CVS5DombKmWa
+ P6qAB90FBa.Xl0BZqumL7rzH3XNc86ZTT7eVlJdrAvX2bO04vF9uxWlWX4R6
+ eXkFNIfYWMfSLDSkVCeohckykZs3rS.IAVRC2KfTMUWCGSBoh0MO3rkDL2lQ
+ 6UrYnv5t47L0D9yCjfkejLkIfGcV9wJdLvQxCRGWGrOivglMosy7UNV5oeNy
+ NBVUnV3wJhpyXwFs5867FSRBqGiCZN29f0SNsRo7w0kr_dS9EJ7dl1YtER0Q
+ xYlUs20BLWAgEZMe1dKV3JObTajylZYvYPmIHi5ZDywWOz4iblnSf6eiG.nA
+ PuRNqKOEYbvD7_76AbNC6Qrh4CaxiXLO2qT0jh6D5rpveV9hdNOc1PNY28ua
+ 1pPSmPzwDZcXPh4vbWSmvvjjUno..L7oRgKelWSkJyyUoXli8fZ6FHbAdBPZ
+ HqRC5P0cKHT9xEHTOrhYXwG.qMAjOmoiFQnGbMF.ElSjyb7R_LjwdqyznoXc
+ vq2ozf8t2.Fe2CkoB9BbbNpcDF5y6Dwu9UuFhCW85Zu1tqmpog7xMVdNeO2N
+ ck0orhVQVcvbheC0cRmOLuufJYrnhMrYIel44cIZ6rH3OupaL8oejEQoJElD
+ 2YqykQwU8rS3KK24QsPKx2pvzykW03vE0woaBleJ5RjxUWQvUlQ1styGGH_u
+ 6O_rF9BLy0ByKrY6KryA0ac.y9iY1.utxoZGqxX.ikA.KSSkYd1YpNXVO6LH
+ W3q1qCgnHrV9AozWFqck8LckLow2AmpETFg9W56Tlupx0K3CcWVLBD2aHTkL
+ MvaSQByaGLZD7p6uGNbTLx9ljtaIszgdwtA29fExBOcjUSG.rOatb6F0tjyq
+ 2W9dE.qhrbyx_XJ5JTbu5tckrUnEq5yHpxcntwQzyWET3O_F2j5LHDbRgBga
+ gK0yiSPnX9BiaCKZgZI-
+Received: from 82.199.156.193 (EHLO mail-gk.s156.mailrelay-iv.com)
+ by 10.253.232.218 with SMTPs
+ (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256);
+ Sat, 31 May 2025 18:23:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=ipz2; d=lunixor.com;
+ h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:List-Unsubscribe:List-Unsubscribe-Post:Date;
+ i=careers@lunixor.com;
+ bh=pcrdaOs/GRcaPKW6jxUIiHqr1gQOcpSAuDqhREw1m4A=;
+ b=ZWqCJXWhTbN0/x4x55EeafNZbRSZrynrYs7Vl8TSybevuqzR4cp2f+8LYxB2GO/phmwSHpZdi6Tf
+   CJIqYNwrzy1f6/Tpx1SLu5x+UjVKQeY61Z2mXbT+25HSTuvp51TZzH7J/Ll448P9pDCF0s6PZdMr
+   6hPZ5wa5pJvVtVZ0awrccVCAw96K3mAh+x6OpW94qgYF81Ar02Dm70lj0NMQ6UWlh09+6IzZJBQ9
+   FRfD9tlvdLO5bTTArz99WxuMXSEB47Cqv7klOy+TW0o6ygneonnCwUvVeXi3wqauNpeZmtihTYHC
+   tCxd1SDEtZkuxbianrZ2MdsEgD5vDJeaYBafUw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; s=ipzs1; d=mrelayip.com;
+ h=From:Reply-To:To:Message-ID:Subject:MIME-Version:Content-Type:
+ Content-Transfer-Encoding:List-Unsubscribe:List-Unsubscribe-Post:Date;
+ bh=pcrdaOs/GRcaPKW6jxUIiHqr1gQOcpSAuDqhREw1m4A=;
+ b=FTXTkkMRxsG/UTNnkjamb5HwU7cq69hDDZ6kYuRgC8XkM6NPBAa10j7v05wmBn2EUIpfig5qy1TS
+   elihPDqfJYO3vXVSqixcJncSb4pXzYnnhCBjD+6T6Hmi5nqHOf+gRUlBBquUvPBOPTw/k3YwDg8s
+   wLwc3YlmtrOlf79fgtGtJHQualpJCn1JNzBicaA9DtAyEqHcmkbW2gqgPbR3AfcCW95tiXwzZyz2
+   MoXXr5e40ZowunEcV8kZfBFTNL0zctr2UMJ6OC6N659RjDYa9ean/k3bTK1O1GeLMpwlw9CmT0lO
+   UcJp2tQ+aVdT4yWc9G8vh7a/gJfb3TYTCoHdTA==
+From: Michael Welm <careers@lunixor.com>
+Reply-To: careers@lunixor.com
+To: George Adrian Pircalaboiu <pircalaboiu.adrian@yahoo.com>
+Message-ID: <1_qd6yJi2eLg@emails.lunixor.com>
+Subject: Application Update - Invitation to Join Our Team
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_683b43bfc41f_182dc014800db";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-SEID: 1_qd6yJi2eLg
+List-Unsubscribe: <mailto:7w8o615bjqyx6l-h8aorcju9weg5w@emails.lunixor.com>,
+ <https://emails.lunixor.com/unsubscribe/lgvy0/list_unsubscribe?token=udakvek5&unsubscribe_token=h8aorcju9weg5w>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+Feedback-ID: 515359:515359-4:campaign:IPZMR
+Date: Sat, 31 May 2025 18:23:41 +0000
+Content-Length: 13177
+
+
+----==_mimepart_683b43bfc41f_182dc014800db
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Hello George Adrian Pircalaboiu ,
+
+This email is to follow up on your application for
+the position at Lunixor, submitted via LinkedIn. Following our
+review, we are very interested in moving forward.
+
+Please visit our website below to view more
+information about this contractor position:
+
+https://lunixor.com/join
+
+We welcome any questions you may have. Thank you for
+your time, and we anticipate your response.
+
+This email was sent to pircalaboiu.adrian@yahoo.com
+
+If you no longer wish to receive these emails, you
+can unsubscribe here 
+( https://emails.lunixor.com/unsubscribe/lgvy0/form?token=udakvek5 )
+.
+----==_mimepart_683b43bfc41f_182dc014800db
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html>
+<html lang=3D"und" dir=3D"auto" xmlns=3D"http://www.w3.org/1999/xhtml" xm=
+lns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-microsoft-=
+com:office:office">
+  <head>
+    <title>Application Update - Invitation to Join Our Team</title>
+    <!--[if !mso]><!-->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge">
+    <!--<![endif]-->
+    <meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DUTF=
+-8">
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scal=
+e=3D1">
+    <style type=3D"text/css">
+      #outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-si=
+ze-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table=
+-rspace:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-deco=
+ration:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }
+    </style>
+    <!--[if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]-->
+    <!--[if lte mso 11]>
+    <style type=3D"text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]-->
+    =
+
+    =
+
+    <style type=3D"text/css">
+      @media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+      }
+    </style>
+    <style media=3D"screen and (min-width:480px)">
+      .moz-text-html .mj-column-per-100 { width:100% !important; max-widt=
+h: 100%; }
+    </style>
+    =
+
+    =
+
+  =
+
+    =
+
+     =
+
+    <style type=3D"text/css">
+.mjbody a{color:inherit}@media (max-width: 480px){.hide-mobile-block{max-=
+height:0px;overflow:hidden;display:none!important}.hide-desktop-block{dis=
+play:block!important}.hide-mobile-inline-block{max-height:0px;overflow:hi=
+dden;display:none!important}.hide-desktop-inline-block{display:inline-blo=
+ck!important}}
+.ed-text-container p { margin: 0 0 10px; } .ed-text-container h1 { font-f=
+amily: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 36px; }=
+ .ed-text-container h2 { font-family: 'Helvetica Neue', Helvetica, Arial,=
+ sans-serif; font-size: 30px; } .ed-text-container h3 { font-family: 'Hel=
+vetica Neue', Helvetica, Arial, sans-serif; font-size: 24px; } .ed-text-c=
+ontainer h4 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif=
+; font-size: 18px; } .ed-section-header .ed-text-container { color: #1111=
+11; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-siz=
+e: 16px; text-align: center; } .ed-section-header .ed-text-container a { =
+color: #337ab7; text-decoration: underline; } .ed-block-1 .ed-text-contai=
+ner { text-align: center; } .ed-section-contentWithBackground .ed-text-co=
+ntainer { color: #111111; font-family: 'Helvetica Neue', Helvetica, Arial=
+, sans-serif; font-size: 16px; } .ed-section-contentWithBackground .ed-te=
+xt-container a { color: #337ab7; text-decoration: underline; } .ed-sectio=
+n-content .ed-text-container { color: #111111; font-family: 'Helvetica Ne=
+ue', Helvetica, Arial, sans-serif; font-size: 16px; } .ed-section-content=
+ .ed-text-container a { color: #337ab7; text-decoration: underline; } .ed=
+-section-footer .ed-text-container { color: #ffffff; font-family: 'Helvet=
+ica Neue', Helvetica, Arial, sans-serif; font-size: 15px; } .ed-section-f=
+ooter .ed-text-container a { color: #337ab7; text-decoration: underline; =
+}
+.mjbody a, .mjbody a:hover, .mjbody a:active, .mjbody a[href], .mjbody a[=
+href]:hover, .mjbody a[href]:active {color: inherit;text-decoration: unde=
+rline}
+    </style>
+    =
+
+  </head>
+  <body style=3D"word-spacing:normal;background-color:#ffffff;">
+    =
+
+    =
+
+      <div class=3D"mjbody" style=3D"background-color:#ffffff;" lang=3D"u=
+nd" dir=3D"auto">
+        =
+
+      <table align=3D"center" class=3D"ed-section ed-section-header" bord=
+er=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=3D=
+"background:#ffffff;background-color:#ffffff;width:100%;">
+        <tbody>
+          <tr>
+            <td>
+              =
+
+        =
+
+      <!--[if mso | IE]><table align=3D"center" border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" class=3D"ed-section-outlook ed-section-header-outlo=
+ok" role=3D"presentation" style=3D"width:700px;" width=3D"700" bgcolor=3D=
+"#ffffff" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-height=
+-rule:exactly;"><![endif]-->
+    =
+
+        =
+
+      <div style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0px;p=
+adding-bottom:0px;padding-left:0px;padding-right:0px;padding-top:0px;text=
+-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"ed-block-outlook =
+ed-block-7-outlook" width=3D"700px" ><table align=3D"center" border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" class=3D"ed-block-outlook ed-block-7=
+-outlook" role=3D"presentation" style=3D"width:700px;" width=3D"700" ><tr=
+><td style=3D"line-height:0px;font-size:0px;mso-line-height-rule:exactly;=
+"><![endif]-->
+    =
+
+      =
+
+      <div class=3D"ed-block ed-block-7" style=3D"margin:0px auto;max-wid=
+th:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:20px;padding-left:0px;padding-right:0px;padding-top:20px;text=
+-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding-top:0px;padding-right=
+:0px;padding-bottom:0px;padding-left:0px;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:10px =
+25px;padding-top:3px;padding-right:25px;padding-bottom:3px;padding-left:2=
+5px;word-break:break-word;">
+                  =
+
+      <div style=3D"font-family:Arial, sans-serif;font-size:16px;font-wei=
+ght:normal;line-height:1.3;text-align:center;color:#000000;">
+<div>Hello =C2=A0George Adrian Pircalaboiu ,</div>
+            <div>=C2=A0</div>
+            <div>This email is to follow up on your application for the p=
+osition at Lunixor, submitted via LinkedIn. Following our review, we are =
+very interested in moving forward.</div>
+            <div>=C2=A0</div>
+            <div>Please visit our website below to view more information =
+about this contractor position:</div>
+            <div>=C2=A0</div>
+            <div><span><strong>https://lunixor.com/join</strong></span></=
+div>
+            <div>=C2=A0</div>
+            <div>We welcome any questions you may have. Thank you for you=
+r time, and we anticipate your response.</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+            <div>=C2=A0</div>
+</div>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr><tr><td class=3D"" wi=
+dth=3D"700px" ><table align=3D"center" border=3D"0" cellpadding=3D"0" cel=
+lspacing=3D"0" class=3D"" role=3D"presentation" style=3D"width:700px;" wi=
+dth=3D"700" ><tr><td style=3D"line-height:0px;font-size:0px;mso-line-heig=
+ht-rule:exactly;"><![endif]-->
+    =
+
+      =
+
+      <div style=3D"margin:0px auto;max-width:700px;">
+        =
+
+        <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" role=3D"presentation" style=3D"width:100%;">
+          <tbody>
+            <tr>
+              <td style=3D"direction:ltr;font-size:0px;padding:20px 0;pad=
+ding-bottom:20px;padding-left:0px;padding-right:0px;padding-top:20px;text=
+-align:center;">
+                <!--[if mso | IE]><table role=3D"presentation" border=3D"=
+0" cellpadding=3D"0" cellspacing=3D"0"><tr><td class=3D"" style=3D"vertic=
+al-align:top;width:700px;" ><![endif]-->
+            =
+
+      <div class=3D"mj-column-per-100 mj-outlook-group-fix" style=3D"font=
+-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-ali=
+gn:top;width:100%;">
+        =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" width=3D"100%">
+        <tbody>
+          <tr>
+            <td style=3D"vertical-align:top;padding-top:0px;padding-right=
+:0px;padding-bottom:0px;padding-left:0px;">
+              =
+
+      <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" role=3D"pre=
+sentation" style width=3D"100%">
+        <tbody>
+          =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:10px =
+25px;padding-top:3px;padding-right:25px;padding-bottom:3px;padding-left:2=
+5px;word-break:break-word;">
+                  =
+
+      <div style=3D"font-family:Arial, sans-serif;font-size:16px;font-wei=
+ght:normal;line-height:1.3;text-align:center;color:#000000;">This email w=
+as sent to=C2=A0pircalaboiu.adrian@yahoo.com=C2=A0</div>
+    =
+
+                </td>
+              </tr>
+            =
+
+              <tr>
+                <td align=3D"center" style=3D"font-size:0px;padding:10px =
+25px;padding-top:15px;padding-right:25px;padding-bottom:15px;padding-left=
+:25px;word-break:break-word;">
+                  =
+
+      <div style=3D"font-family:Arial, sans-serif;font-size:16px;font-wei=
+ght:normal;line-height:1.3;text-align:center;color:#000000;">If you no lo=
+nger wish to receive these emails, you can=C2=A0<span><a href=3D"https://=
+emails.lunixor.com/unsubscribe/lgvy0/form?token=3Dudakvek5" target=3D"_bl=
+ank">unsubscribe here</a></span>.</div>
+    =
+
+                </td>
+              </tr>
+            =
+
+        </tbody>
+      </table>
+    =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+          <!--[if mso | IE]></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+      =
+
+      <!--[if mso | IE]></td></tr></table></td></tr></table><![endif]-->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        =
+
+      </div>
+    =
+
+        =
+
+      <!--[if mso | IE]></td></tr></table><![endif]-->
+    =
+
+      =
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    =
+
+      </div>
+    =
+
+  <img src=3D"https://emails.lunixor.com/i/lgvy0/udakvek5.gif" width=3D"1=
+" height=3D"1" alt=3D"">
+</body>
+</html>
+
+----==_mimepart_683b43bfc41f_182dc014800db--
