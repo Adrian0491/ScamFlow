@@ -10,11 +10,17 @@ from datetime import datetime
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from scamPhisher.logging.log_indexing import Logging
 
+# Constants for paths
+RAW_MESSAGE_PATH = "scamPhisher/raw_messages_models"
+JSON_OUTPUT_PATH = "scamPhisher/JSON_Output"
+LOGS_DIR = "scamPhisher/logs"
+LOG_FILE_NAME = "scamFlow.log"
+
 class LogParser:
     def __init__(self, raw_email: str):
         self.raw_email = raw_email
         self.parsed_data: Dict[str, Union[Optional[str], List[str]]] = {}
-        self.logger = Logging() 
+        self.logger = Logging(log_dir = LOGS_DIR, log_file=LOG_FILE_NAME) 
 
     def parse_headers(self) -> None:
         """Extract common headers from the raw email."""
@@ -51,7 +57,7 @@ class LogParser:
         self.extract_links()
         return self.parsed_data
 
-    def parse_all_files(self, input_dir: str = "raw_message_module", output_dir: str = 'JSON_Output') -> None:
+    def parse_all_files(self, input_dir: str = RAW_MESSAGE_PATH, output_dir: str = JSON_OUTPUT_PATH) -> None:
         """
         Parses all files contained by the raw_messages_module Folder.
         Output is saved in a JSON file.

@@ -1,0 +1,18 @@
+{
+    "From": "Michael Welm <careers@lunixor.com>",
+    "Reply-To": "careers@lunixor.com",
+    "Subject": "Application Update - Invitation to Join Our Team",
+    "Return-Path": "<b-7w8o615bjqyx6l-h8aorcju9weg5w@emails.lunixor.com>",
+    "X-Originating-Ip": "82.199.156.193",
+    "SPF": "pass (domain of emails.lunixor.com designates 82.199.156.193 as permitted sender)",
+    "DKIM": "v=1; a=rsa-sha256; c=relaxed/relaxed; s=ipz2; d=lunixor.com;",
+    "Authentication-Results": "atlas-production.v2-mail-prod1-gq1.omega.yahoo.com;",
+    "Links": [
+        "https://emails.lunixor.com/unsubscribe/lgvy0/list_unsubscribe?token=udakvek5&unsubscribe_token=h8aorcju9weg5w",
+        "https://lunixor.com/join",
+        "https://emails.lunixor.com/unsubscribe/lgvy0/form?token=udakvek5",
+        "http://www.w3.org/1999/xhtml",
+        "https://lunixor.com/join",
+        "https://emails.lunixor.com/i/lgvy0/udakvek5.gif"
+    ]
+}
