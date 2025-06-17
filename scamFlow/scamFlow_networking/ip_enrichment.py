@@ -40,6 +40,73 @@ class IPEnricher:
         except Exception as e:
             self.data = {"Error": str(e)}
         return self.data
+    
+class AbuseChecker:
+    """
+        Checks if the IP has been reported for malicious activity using the Abuse IPDB API.
+        Returns abuse confidence score, number of reports and the country.
+    """
+    API_KEY = "your_abuseipdb_API_key"
+    API_URL = "https://api.abuseipdb.com/api/v2/check"
+
+    def __init__(self, ip: str):
+        self.ip = ip
+        self.headers = {
+            "Key": self.API_KEY,
+            "Accept": "application/json"
+        }
+        self.data = Dict[str, Optional[str]] = {}
+
+    def abuse_checker(self) -> Dict[str, Optional[str]]:
+        try:
+            response = requests.get(
+                self.API_URL,
+                headers = self.headers,
+                params={"ipAddress": self.ip, "maxAgeInDays": 90}
+            )
+            result = response.json()["data"]
+            self.data = {
+                "Abuse Score": str(result.get("abuseConfidenceScore")),
+                "Reported Times": str(result.get("totalReports")),
+                "Last Reported": result.get("lastReportedAt"),
+                "Abuse Country": result.get("countryCode"),
+            }            
+        except Exception as e:
+            self.data = {f"Error": str(e)}
+        return self.data
+    
+class GeoLocator:
+    """
+        Uses ipinfo.io to fetch geolocation, hosting type and privacy info.
+        Includes detection of VPN, hosting provider or Tor exit node.
+    """
+
+    TOKEN = ""
+    API_URL = "https://ipinfo.io"
+
+    def __init__(self, ip_address: str):
+        self.ip = ip_address
+        self.data: Dict[str, Optional[str]] = {}
+
+    def lookup_geo(self) -> Dict[str, Optional[str]]:
+        try:
+            response = requests.get(f"{self.API_URL}/{self.ip}?token={self.TOKEN}")
+            result = response.json()
+            self.data = {
+                "IP": result.get("ip"),
+                "City": result.get("city"),
+                "Region": result.get("region"),
+                "Country": result.get("country"),
+                "Org": result.get("org"),
+                "Hostname": result.get("hostname"),
+                "Anycast": str(result.get("anycast")),
+                "Bogon": str(result.get("bogon")),
+                "Privacy": str(response.get("privacy")),
+            }
+        except Exception as e:
+            self.data = {"Error": str(e)}
+        return self.data
+        
 
 if __name__ == "__main__":
     json_files = glob.glob(os.path.join(JSON_DIR, "*.json"))
@@ -51,10 +118,25 @@ if __name__ == "__main__":
                 data = json.load(f)
 
             ip = data.get("X-Originating-Ip")
+
             if ip:
+                
+                results = {}
+
                 enricher = IPEnricher(ip)
-                enriched = enricher.enrich_ip()
-                print(json.dumps(enriched, indent=4))
+                results["IPEnricher"] = enricher.enrich_ip()
+
+                abuse = AbuseChecker(ip)
+                results["AbuseChecker"] = abuse.abuse_checker()
+
+                locator = GeoLocator(ip)
+                results["GeoLocator"] = locator.lookup_geo()
+              
+                print(json.dumps(results, indent=4))
+
+                output_file = os.path.splitext(json_file)[0] + "_enriched.json"
+                with open(output_file, "w", encoding="utf-8") as outf:
+                    json.dumps(results, outf, indent=4)
             else:
                 print("[INFO] No X-Originating-Ip found.")
         except Exception as e:
