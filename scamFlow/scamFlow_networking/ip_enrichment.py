@@ -46,7 +46,7 @@ class AbuseChecker:
     Checks if the IP has been reported for malicious activity using the Abuse IPDB API.
     Returns abuse confidence score, number of reports and the country.
     """
-    API_KEY = "test_dummy_API_KEY_FROM_abuseChecker123456" # Please create account and use personal token.
+    API_KEY = "" # Please create account and use personal token.
     API_URL = "https://api.abuseipdb.com/api/v2/check"
 
     def __init__(self, ip: str):
