@@ -1,8 +1,12 @@
+import sys
+import os
 import unittest
 from unittest.mock import patch, Mock
 
-from ip_enrichment import IPEnricher, AbuseChecker, GeoLocator
+# Dynamically include the current script directory
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from ip_enrichment import IPEnricher, AbuseChecker, GeoLocator
 
 class TestIPEnricher(unittest.TestCase):
     @patch('ip_enrichment.requests.get')
