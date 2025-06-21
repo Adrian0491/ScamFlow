@@ -4,7 +4,7 @@ import os
 import glob
 from typing import Dict, Optional
 
-# Optional: Define the folder containing parsed JSON files
+# Define the folder containing parsed JSON files
 JSON_DIR = "scamFlow/JSON_Output"
 
 class IPEnricher:
@@ -40,11 +40,11 @@ class IPEnricher:
         except Exception as e:
             self.data = {"Error": str(e)}
         return self.data
-    
+
 class AbuseChecker:
     """
-        Checks if the IP has been reported for malicious activity using the Abuse IPDB API.
-        Returns abuse confidence score, number of reports and the country.
+    Checks if the IP has been reported for malicious activity using the Abuse IPDB API.
+    Returns abuse confidence score, number of reports and the country.
     """
     API_KEY = "f0c1c15a593602824a2e30c770a696f2fe03e7be68e7076a8fde1d1e87958f08e0143b69a53d3a34"
     API_URL = "https://api.abuseipdb.com/api/v2/check"
@@ -55,13 +55,13 @@ class AbuseChecker:
             "Key": self.API_KEY,
             "Accept": "application/json"
         }
-        self.data = Dict[str, Optional[str]] = {}
+        self.data: Dict[str, Optional[str]] = {}
 
     def abuse_checker(self) -> Dict[str, Optional[str]]:
         try:
             response = requests.get(
                 self.API_URL,
-                headers = self.headers,
+                headers=self.headers,
                 params={"ipAddress": self.ip, "maxAgeInDays": 90}
             )
             result = response.json()["data"]
@@ -70,17 +70,16 @@ class AbuseChecker:
                 "Reported Times": str(result.get("totalReports")),
                 "Last Reported": result.get("lastReportedAt"),
                 "Abuse Country": result.get("countryCode"),
-            }            
+            }
         except Exception as e:
-            self.data = {f"Error": str(e)}
+            self.data = {"Error": str(e)}
         return self.data
-    
+
 class GeoLocator:
     """
-        Uses ipinfo.io to fetch geolocation, hosting type and privacy info.
-        Includes detection of VPN, hosting provider or Tor exit node.
+    Uses ipinfo.io to fetch geolocation, hosting type and privacy info.
+    Includes detection of VPN, hosting provider or Tor exit node.
     """
-
     TOKEN = "93a9efc5b15921"
     API_URL = "https://ipinfo.io"
 
@@ -101,12 +100,11 @@ class GeoLocator:
                 "Hostname": result.get("hostname"),
                 "Anycast": str(result.get("anycast")),
                 "Bogon": str(result.get("bogon")),
-                "Privacy": str(response.get("privacy")),
+                "Privacy": str(result.get("privacy")),
             }
         except Exception as e:
             self.data = {"Error": str(e)}
         return self.data
-        
 
 if __name__ == "__main__":
     json_files = glob.glob(os.path.join(JSON_DIR, "*.json"))
@@ -120,7 +118,6 @@ if __name__ == "__main__":
             ip = data.get("X-Originating-Ip")
 
             if ip:
-                
                 results = {}
 
                 enricher = IPEnricher(ip)
@@ -131,8 +128,8 @@ if __name__ == "__main__":
 
                 locator = GeoLocator(ip)
                 results["GeoLocator"] = locator.lookup_geo()
-              
-                print(json.dump(results, indent=4))
+
+                print(json.dumps(results, indent=4))  # ✅ Correct usage
 
                 output_file = os.path.splitext(json_file)[0] + "_enriched.json"
                 with open(output_file, "w", encoding="utf-8") as outf:
