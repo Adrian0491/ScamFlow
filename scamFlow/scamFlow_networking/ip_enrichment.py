@@ -132,11 +132,11 @@ if __name__ == "__main__":
                 locator = GeoLocator(ip)
                 results["GeoLocator"] = locator.lookup_geo()
               
-                print(json.dumps(results, indent=4))
+                print(json.dump(results, indent=4))
 
                 output_file = os.path.splitext(json_file)[0] + "_enriched.json"
                 with open(output_file, "w", encoding="utf-8") as outf:
-                    json.dumps(results, outf, indent=4)
+                    json.dump(results, outf, indent=4)
             else:
                 print("[INFO] No X-Originating-Ip found.")
         except Exception as e:
