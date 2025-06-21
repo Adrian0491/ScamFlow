@@ -46,7 +46,7 @@ class AbuseChecker:
         Checks if the IP has been reported for malicious activity using the Abuse IPDB API.
         Returns abuse confidence score, number of reports and the country.
     """
-    API_KEY = "your_abuseipdb_API_key"
+    API_KEY = "f0c1c15a593602824a2e30c770a696f2fe03e7be68e7076a8fde1d1e87958f08e0143b69a53d3a34"
     API_URL = "https://api.abuseipdb.com/api/v2/check"
 
     def __init__(self, ip: str):
@@ -81,7 +81,7 @@ class GeoLocator:
         Includes detection of VPN, hosting provider or Tor exit node.
     """
 
-    TOKEN = ""
+    TOKEN = "93a9efc5b15921"
     API_URL = "https://ipinfo.io"
 
     def __init__(self, ip_address: str):
