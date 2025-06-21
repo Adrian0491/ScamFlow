@@ -1,14 +1,11 @@
 import unittest
-import os
-import sys
-
 from unittest.mock import patch, Mock
-#from scamFlow.scamFlow_networking.ip_enrichment import *
+
+from ip_enrichment import IPEnricher, AbuseChecker, GeoLocator
 
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),"../../..")))
 class TestIPEnricher(unittest.TestCase):
-    @patch('scamFlow.scamFlow_networking.ip_enrichment.requests.get')
+    @patch('ip_enrichment.requests.get')
     def test_enrich_ip_success(self, mock_get):
         mock_response = Mock()
         mock_response.json.return_value = {
@@ -32,7 +29,7 @@ class TestIPEnricher(unittest.TestCase):
 
 
 class TestAbuseChecker(unittest.TestCase):
-    @patch('scamFlow.scamFlow_networking.ip_enrichment.requests.get')
+    @patch('ip_enrichment.requests.get')
     def test_abuse_checker_success(self, mock_get):
         mock_response = Mock()
         mock_response.json.return_value = {
@@ -54,7 +51,7 @@ class TestAbuseChecker(unittest.TestCase):
 
 
 class TestGeoLocator(unittest.TestCase):
-    @patch('scamFlow.scamFlow_networking.ip_enrichment.requests.get')
+    @patch('ip_enrichment.requests.get')
     def test_geo_locator_success(self, mock_get):
         mock_response = Mock()
         mock_response.json.return_value = {
