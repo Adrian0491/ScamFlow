@@ -1,7 +1,12 @@
 import unittest
-from unittest.mock import patch, Mock
-from scamFlow.scamFlow_networking.ip_enrichment import IPEnricher, AbuseChecker, GeoLocator
+import os
+import sys
 
+from unittest.mock import patch, Mock
+#from scamFlow.scamFlow_networking.ip_enrichment import *
+
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__),"../../..")))
 class TestIPEnricher(unittest.TestCase):
     @patch('scamFlow.scamFlow_networking.ip_enrichment.requests.get')
     def test_enrich_ip_success(self, mock_get):
