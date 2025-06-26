@@ -40,4 +40,4 @@ main() {
     echo "Done. See $LOG_FILE for details"
 }
 
-main
+main("@")
