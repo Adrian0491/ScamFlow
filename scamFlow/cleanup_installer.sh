@@ -1,9 +1,11 @@
 #!/bin/bash
+set -e
+set -x
 
 echo "[INFO] Installing ScamFlow Cleanup Service..."
 
 # Dynamically finds the JSON output absolute path
-ScamFlow_Path=$(realpath "(dirname "$0")/../JSON_Output")
+ScamFlow_Path=$(realpath "$(dirname "$0")/JSON_Output")
 
 # Check that the folder exist
 if [ ! -d "$ScamFlow_Path" ]; then
@@ -16,7 +18,7 @@ echo "[INFO] Detected folder path: $ScamFlow_Path"
 # Update .service file with the detected folder path
 sed "s|/path/to/scamFlow/JSON_Output|${ScamFlow_Path}|g" scamFlow_cleanup.service
 
-# Makes files executable
+# Makes files executableS
 chmod +x /tmp/scamFlow_cleanup.service
 chmod +x scamFlow_cleanup.timer
 
@@ -31,3 +33,4 @@ sudo systemctl start scamflow_cleanup.timer
 
 echo "[SUCCESS] ScamFlow Cleanup Timer installed and running every 6 hours."
 
+set +x 
