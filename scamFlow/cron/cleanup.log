@@ -1,3 +1,14 @@
 [06-21-2025 23:53] --- ScamFlow JSON Cleanup Started ---
 [06-21-2025 23:53] ERROR: Directory not found: /home/adi/Desktop/codingStuff/ScamFlow-Reporting/scamFlow/JSON_Output or no files to delete
 [06-21-2025 23:53] --- ScamFlow JSON Cleanup Completed ---
+[07-07-2025 21:33] --- ScamFlow JSON Cleanup Started ---
+[07-07-2025 21:33] Starting cleanup in /home/adi/Desktop/codingStuff/ScamFlow-Reporting/scamFlow/JSON_Output
+[07-07-2025 21:33] Cleanup completed. All JSON files removed.
+[07-07-2025 21:33] --- ScamFlow JSON Cleanup Completed ---
+[07-07-2025 21:38] --- ScamFlow JSON Cleanup Started ---
+[07-07-2025 21:38] ERROR: Directory not found: /home/adi/Desktop/codingStuff/ScamFlow-Reporting/scamFlow/cron/JSON_Output or no files to delete
+[07-07-2025 21:38] --- ScamFlow JSON Cleanup Completed ---
+[07-07-2025 21:42] --- ScamFlow JSON Cleanup Started ---
+[07-07-2025 21:42] Starting cleanup in /home/adi/Desktop/codingStuff/ScamFlow-Reporting/scamFlow/JSON_Output
+[07-07-2025 21:42] Cleanup completed. All JSON files removed.
+[07-07-2025 21:42] --- ScamFlow JSON Cleanup Completed ---
