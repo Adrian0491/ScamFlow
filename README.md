@@ -1,6 +1,6 @@
 # ScamFlow
 
-**ScamFlow-Reporting** is an open-source reporting and monitoring toolkit designed to analyze, log, and report scam-related email activity. The tool aims to assist individuals, SOC teams, and cybersecurity enthusiasts in identifying, classifying, and submitting abuse reports against scam campaigns — with an eventual goal of visualizing trends through platforms like ElastiFlow, Grafana, or Kibana.
+**ScamFlow** is an open-source reporting and monitoring toolkit designed to analyze, log, and report scam-related email activity. The tool aims to assist individuals, SOC teams, and cybersecurity enthusiasts in identifying, classifying, and submitting abuse reports against scam campaigns — with an eventual goal of visualizing trends through platforms like ElastiFlow, Grafana, or Kibana.
 
 ---
 
