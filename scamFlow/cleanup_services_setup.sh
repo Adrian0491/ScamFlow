@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 ###########################################
 # ScamFlow Archival Timer Installer
@@ -17,12 +16,12 @@ SCRIPT_PATH="/home/adi/Desktop/codingStuff/ScamFlow-Reporting/scamFlow/cron/arch
 # Validate script exists
 if [ ! -f "$SCRIPT_PATH" ]; then
     echo "[ERROR] Archival script not found at $SCRIPT_PATH"
-    exit 1
+    exit 1sudo
 fi
 
 # Create .service file
 echo "[INFO] Creating $SERVICE_FILE"
-sudo bash -c "cat > $SERVICE_FILE" <<EOL
+sudo bash -c "cat > $SERVICE_FILE" <<EOLsu
 [Unit]
 Description=ScamFlow JSON Archival Script
 After=network.target
