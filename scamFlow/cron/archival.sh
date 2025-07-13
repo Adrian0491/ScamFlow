@@ -21,14 +21,28 @@ log_message() {
     echo "[$(date '+%m-%d-%Y %H:%M')] $1" >> "$LOG_FILE"
 }
 
-# --- Function: Delete files ---
+# --- Function: To delete all existing JSON files ---
 delete_json_files() {
     if [ -d "$TARGET_DIR" ]; then
-        log_message "Starting cleanup in $TARGET_DIR"
-        find "$TARGET_DIR" -type f -name "*.json" -exec rm -f {} \;
-        log_message "Cleanup completed. All JSON files removed."
+        JSON_COUNT=$(find "$TARGET_DIR" -type f -name "*.json" | wc -l)
+        if [ "$JSON_COUNT" -eq 0]; then
+            log_message "No JSON files found in $TARGET_DIR. Nothing to delete."
+        else
+            log_message "Starting cleanup: Found $JSON_COUNT files in $TARGET_DIR"
+            find "$TARGET_DIR" -type f -name "*.json" -exec rm -f {} \;
+            log_message "Cleanup completed. All files deleted."
+        fi
     else
-        log_message "ERROR: Directory not found: $TARGET_DIR or no files to delete"
+        log_message "[ERROR] Directory not found: $TARGET_DIR"
+}
+
+# --- Function: Prune old cleanup.log if older than 7 days ---
+prune_log_file() {
+    if [ -f "$LOG_FILE" ]; then
+        if [ "$(find "$LOG_FILE" -mtime +7)" ]; then
+            rm -f "$LOG_FILE"
+            echo "Old cleanup.log removed (older than 7 days)"
+        fi
     fi
 }
 
