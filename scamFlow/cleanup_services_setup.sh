@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+set -x
 
 ###########################################
 # ScamFlow Archival Timer Installer
@@ -21,7 +23,7 @@ fi
 
 # Create .service file
 echo "[INFO] Creating $SERVICE_FILE"
-sudo bash -c "cat > $SERVICE_FILE" <<EOLsu
+sudo bash -c "cat > $SERVICE_FILE" <<EOL
 [Unit]
 Description=ScamFlow JSON Archival Script
 After=network.target
