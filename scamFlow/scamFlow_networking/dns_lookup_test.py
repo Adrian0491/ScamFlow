@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, Mock
-from scamFlow.scamFlow_networking.dns_lookup import DNSLookup
+from dns_lookup import DNSLookup
 
 class TestDNSLookup(unittest.TestCase):
 
