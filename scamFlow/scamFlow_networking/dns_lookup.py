@@ -3,6 +3,11 @@ import dns.reversename
 from scamFlow.logging.log_indexing import Logging
 
 class DNSLookup:
+    """
+    DNSLookup provides DNS queries (A, MX, NS) and reverse DNS lookups,
+    with centralized logging for failures.
+    """
+    
     def __init__(self, lookup_ip: str = None, domain: str = None):
         self.lookup_ip = lookup_ip
         self.domain = domain
