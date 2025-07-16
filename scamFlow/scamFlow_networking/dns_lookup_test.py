@@ -1,6 +1,13 @@
 import unittest
 from unittest.mock import patch, Mock
-from dns_lookup import DNSLookup
+
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+from scamFlow.logging.log_indexing import *
+from scamFlow.scamFlow_networking.dns_lookup import *
 
 class TestDNSLookup(unittest.TestCase):
 

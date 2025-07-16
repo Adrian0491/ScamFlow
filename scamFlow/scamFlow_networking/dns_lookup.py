@@ -3,9 +3,10 @@ import dns.reversename
 import sys
 import os
 
-from scamFlow.logging.log_indexing import Logging
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
+from scamFlow.logging.log_indexing import *
+
 class DNSLookup:
     
     """
